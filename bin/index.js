@@ -20,9 +20,9 @@ program
       .then((answers) => {
         console.log(`Dear ${answers.Dear} 项目将继续完善~你愿意加入其中嘛`);
         download(
-          "direct:https://github.com:wang-xin-yuan-001/NodeTemplate",
+          "direct:https://github.com/wang-xin-yuan-001/NodeTemplate.git#main",
           name,
-          // { clone: true },
+          { clone: true },
           function (err) {
             if (err) {
               console.log(err);
