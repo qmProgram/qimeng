@@ -8,30 +8,35 @@ const symbols = require("log-symbols"); //信息前面加✔或✖
 program
   .version(require("../package").version, "-v,--version")
   .command("init <name>")
-  .action((name) => {
-    inquirer
-      .prompt([
+  .action(async (name) => {
+    try {
+      const answers = await inquirer.prompt([
         {
           type: "input",
           name: "Dear",
           message: "请输入你的名字",
         },
-      ])
-      .then((answers) => {
-        console.log(`Dear ${answers.Dear} 项目将继续完善~你愿意加入其中嘛`);
+      ]);
+      console.log(`Dear ${answers.Dear} 项目将继续完善~你愿意加入其中嘛`);
+      await new Promise((resolve, reject) => {
         download(
           "direct:https://github.com/wang-xin-yuan-001/NodeTemplate.git#main",
           name,
           { clone: true },
-          function (err) {
+          (err) => {
             if (err) {
-              console.log(err);
+              reject(err);
             } else {
               console.log(symbols.success, chalk.green("创建项目成功"));
+              resolve();
             }
           }
         );
       });
+    } catch (err) {
+      console.error(chalk.red(`Error: ${err.message}`));
+    }
   });
+
 
 program.parse(process.argv);
