@@ -1,6 +1,6 @@
 {
   "name": "qimeng",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "It's a node cli",
   "author": "wang-xin-yuan-001",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "bin": {
     "qimeng": "bin/index.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^4.0.0",
     "commander": "^9.0.0",
     "download-git-repo": "^3.0.2",
