@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "server.js",
   "bin": {
-    "wxy-cli": "bin/index.js"
+    "qimeng": "bin/index.js"
   },
   "devDependencies": {
     "chalk": "^4.0.0",
